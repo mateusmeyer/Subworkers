@@ -28,14 +28,15 @@
           }
         });
 
+        var regex = /^https?:\/\//g;
         var location = self.location.pathname;
 	var absPath;
 	
-	if(path.match(/^https?:\/\//g)){
-	  absPath = path;
-	}else{
+        if(regex.test(path)){
+          absPath = path;
+        }else{
           absPath = location.substring(0, location.lastIndexOf('/')) + '/' + path;
-	}
+        }
 	
         self.postMessage({
           _subworker: true,
