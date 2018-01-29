@@ -29,7 +29,14 @@
         });
 
         var location = self.location.pathname;
-        var absPath = location.substring(0, location.lastIndexOf('/')) + '/' + path;
+	var absPath;
+	
+	if(path.test(/^https?:\/\//g)){
+	  absPath = path;
+	}else{
+          absPath = location.substring(0, location.lastIndexOf('/')) + '/' + path;
+	}
+	
         self.postMessage({
           _subworker: true,
           cmd: 'newWorker',
