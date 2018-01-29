@@ -31,7 +31,7 @@
         var location = self.location.pathname;
 	var absPath;
 	
-	if(path.test(/^https?:\/\//g)){
+	if(path.match(/^https?:\/\//g)){
 	  absPath = path;
 	}else{
           absPath = location.substring(0, location.lastIndexOf('/')) + '/' + path;
