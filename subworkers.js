@@ -28,13 +28,13 @@
           }
         });
 
-        var regex = /^https?:\/\//g;
+        var regex = /^(?:https?)|(?:file):\/\//ig;
         var location = self.location.pathname;
-	var absPath;
-	
+        var absPath;
+
         if(regex.test(path)){
           absPath = path;
-        }else{
+        } else {
           absPath = location.substring(0, location.lastIndexOf('/')) + '/' + path;
         }
 	
